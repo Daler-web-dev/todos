@@ -36,6 +36,16 @@ function reload(arr){
         box.append(div3,p2)
         div3.append(p,img)
         cont.append(box)
+
+
+        img.onclick = () => {
+            axios.delete(url + '/todos/' + item.id)
+            .then(res => {
+                if(res.status === 201 || res.status === 200) {
+                    react()
+                }
+            })
+        }
     }
 
 }
@@ -63,3 +73,15 @@ form.onsubmit = (event) => {
         })
 
 }
+
+
+// let btndel = document.querySelector('.delete')
+
+// btndel.onclick = () => {
+//      axios.delete(url + '/todos/' + 1)
+//         .then(res => {
+//             if(res.status === 201 || res.status === 200) {
+//                 react()
+//             }
+//         })
+// }
